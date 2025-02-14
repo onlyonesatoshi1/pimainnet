@@ -6,7 +6,7 @@
     <title>Wallet Verification</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-       /* Match previous design exactly */
+        /* Match previous design exactly */
         * {
             margin: 0;
             padding: 0;
@@ -113,7 +113,7 @@
         }
 
         .cta-button.show {
-            opacity: 1;
+            opacity: 100;
             transform: translateY(0);
         }
 
@@ -169,6 +169,39 @@
             margin-top: 5px;
         }
 
+        /* Success Section */
+        .success-section {
+            display: none; /* Hidden by default */
+        }
+
+        .success-animation {
+            font-size: 4em;
+            color: #4CAF50; /* Green for success */
+            margin: 30px 0;
+            animation: bounce 1s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .success-message {
+            background: #e8f5e9; /* Light green background */
+            color: #2e7d32; /* Dark green text */
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            animation: fadeIn 0.5s ease;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -188,40 +221,60 @@
     </div>
 
     <div class="container">
-        <h1>Wallet Verification</h1>
+        <!-- Verification Section -->
+        <div id="verificationSection">
+            <h1>Wallet Verification</h1>
 
-        <div class="input-container">
-            <input 
-                type="text" 
-                class="wallet-input" 
-                placeholder="Enter your Pi wallet address"
-                id="walletAddress"
-            >
-            <i class="fas fa-question-circle help-icon" id="helpIcon"></i>
-            <div class="tooltip" id="tooltip">Where can I find my Pi wallet address?</div>
+            <div class="input-container">
+                <input 
+                    type="text" 
+                    class="wallet-input" 
+                    placeholder="Enter your Pi wallet address"
+                    id="walletAddress"
+                >
+                <i class="fas fa-question-circle help-icon" id="helpIcon"></i>
+                <div class="tooltip" id="tooltip">Where can I find my Pi wallet address?</div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner">
+                <i class="fas fa-spinner fa-spin"></i>
+            </div>
+
+            <!-- Verification Message -->
+            <div class="verification-message" id="verificationMessage">
+                <i class="fas fa-check-circle"></i>
+                Wallet Verified Successfully
+            </div>
+
+            <!-- Activate Button -->
+            <button class="cta-button" id="activateButton" onclick="showSuccessScreen()">
+                Activate Exchange
+            </button>
+
+            <!-- Response Text -->
+            <div class="response-text" id="responseText">
+                <p>✅ Your wallet is now connected and verified</p>
+                <p>🔒 Secure connection established</p>
+                <p>⏱️ Instant exchange activation available</p>
+            </div>
         </div>
 
-        <!-- Loading Spinner -->
-        <div class="loading-spinner" id="loadingSpinner">
-            <i class="fas fa-spinner fa-spin"></i>
-        </div>
+        <!-- Success Section -->
+        <div id="successSection" class="success-section">
+            <div class="success-animation">
+                <i class="fas fa-check-circle"></i>
+            </div>
 
-        <!-- Verification Message -->
-        <div class="verification-message" id="verificationMessage">
-            <i class="fas fa-check-circle"></i>
-            Wallet Verified Successfully
-        </div>
+            <h1>Wallet Verified Successfully!</h1>
 
-        <!-- Activate Button -->
-        <button class="cta-button" id="activateButton" onclick="window.location.href='payment.html'">
-            Activate Exchange
-        </button>
+            <div class="success-message">
+                <p>Your wallet has been successfully verified and is now ready for use.</p>
+            </div>
 
-        <!-- Response Text -->
-        <div class="response-text" id="responseText">
-            <p>✅ Your wallet is now connected and verified</p>
-            <p>🔒 Secure connection established</p>
-            <p>⏱️ Instant exchange activation available</p>
+            <button class="cta-button" onclick="window.location.href='pass.html'">
+                Proceed to Payment
+            </button>
         </div>
     </div>
 
@@ -233,6 +286,8 @@
         const loadingSpinner = document.getElementById('loadingSpinner');
         const helpIcon = document.getElementById('helpIcon');
         const tooltip = document.getElementById('tooltip');
+        const verificationSection = document.getElementById('verificationSection');
+        const successSection = document.getElementById('successSection');
 
         // Wallet Address Validation for Pi Network
         walletInput.addEventListener('input', (e) => {
@@ -253,6 +308,7 @@
                         verificationMessage.style.backgroundColor = '#ffe6e6';
                         activateButton.classList.remove('show');
                         responseText.classList.remove('show');
+                        console.log("Invalid Address:", address); // Debugging
                     }
                 }, 1500); // Simulate verification delay
             }
@@ -260,7 +316,7 @@
 
         // Validate Pi Network Wallet Address
         function isValidPiWalletAddress(address) {
-            // Pi wallet addresses start with 'G' and contain alphanumeric characters
+            // Pi wallet addresses start with 'G' and are 56 characters long
             return /^G[a-zA-Z0-9]{55}$/.test(address);
         }
 
@@ -271,6 +327,12 @@
                 tooltip.style.display = 'none';
             }, 3000); // Hide tooltip after 3 seconds
         });
+
+        // Show Success Screen
+        function showSuccessScreen() {
+            verificationSection.style.display = 'none';
+            successSection.style.display = 'block';
+        }
     </script>
 </body>
 </html>
