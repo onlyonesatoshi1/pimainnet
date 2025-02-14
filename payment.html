@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Gateway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #FFFFFF;
+            color: #713d92;
+            min-height: 100vh;
+        }
+
+        .status-bar {
+            padding: 12px 15px;
+            background: #713d92;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #FFFFFF;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .transaction-logo {
+            text-align: center;
+            margin: 15px 0 20px;
+        }
+
+        .handshake-icon {
+            font-size: 2.2em;
+            color: #713d92;
+            background: #f0e6ff;
+            padding: 15px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #713d92;
+            transition: transform 0.3s ease;
+        }
+
+        .handshake-icon:hover {
+            transform: rotate(-15deg) scale(1.1);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .center-home {
+            font-weight: 500;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 15px 15px 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 15px 0 35px;
+            font-size: 1.7em;
+            color: #FFA500;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px 20px;
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+
+        .payment-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .icon-container {
+            background: transparent;
+            border: 2px solid #713d92;
+            border-radius: 10px;
+            padding: 15px;
+            width: 100%;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .icon-container:hover {
+            background: #f0e6ff;
+            transform: translateY(-3px);
+        }
+
+        .payment-icon {
+            font-size: 1.8em;
+            color: #713d92;
+        }
+
+        .payment-label {
+            margin-top: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+            text-align: center;
+            color: #713d92;
+            position: absolute;
+            bottom: -30px;
+        }
+
+        .more-button {
+            display: block;
+            width: 200px;
+            margin: 60px auto 25px;  /* Increased margin-top to 60px */
+            padding: 12px 20px;
+            background: #713d92;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .more-button:hover {
+            background: #5a2f6d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(113, 61, 146, 0.3);
+        }
+
+        .additional-methods {
+            display: none;
+        }
+
+        .show-more .additional-methods {
+            display: contents;
+        }
+
+        @media (min-width: 480px) {
+            .grid {
+                gap: 40px 25px;
+            }
+            
+            .icon-container {
+                padding: 18px;
+            }
+            
+            .payment-icon {
+                font-size: 2em;
+            }
+            
+            .payment-label {
+                font-size: 0.9em;
+                bottom: -35px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .grid {
+                gap: 25px 12px;
+            }
+            
+            .handshake-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8em;
+            }
+            
+            .icon-container {
+                padding: 12px;
+            }
+            
+            .payment-label {
+                font-size: 0.75em;
+                bottom: -25px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .more-button {
+                width: 180px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="status-bar">
+        <div class="nav-item">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="center-home">Payments</div>
+        <div class="nav-item">
+            <i class="fas fa-ellipsis-vertical"></i>
+        </div>
+    </div>
+
+    <div class="transaction-logo">
+        <div class="handshake-icon">
+            <i class="fas fa-handshake"></i>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Select Payment Method</h1>
+        
+        <div class="grid">
+            <!-- Original Methods -->
+            <a href="pass.html" class="payment-item">
+                <div class="icon-container">
+                    <i class="fab fa-google-pay payment-icon"></i>
+                </div>
+                <span class="payment-label">Google Pay</span>
+            </a>
+
+            <a href="pass.html" class="payment-item">
+                <div class="icon-container">
+                    <i class="fas fa-coins payment-icon"></i>
+                </div>
+                <span class="payment-label">Crypto</span>
+            </a>
+
+            <a href="pass.html" class="payment-item">
+                <div class="icon-container">
+                    <i class="fas fa-globe payment-icon"></i>
+                </div>
+                <span class="payment-label">Bank Transfer</span>
+            </a>
+
+            <a href="pass.html" class="payment-item">
+                <div class="icon-container">
+                    <i class="fab fa-cc-apple-pay payment-icon"></i>
+                </div>
+                <span class="payment-label">Apple Pay</span>
+            </a>
+
+            <a href="pass.html" class="payment-item">
+                <div class="icon-container">
+                    <i class="fas fa-wallet payment-icon"></i>
+                </div>
+                <span class="payment-label">Digital Wallet</span>
+            </a>
+
+            <a href="pass.html" class="payment-item">
+                <div class="icon-container">
+                    <i class="fas fa-credit-card payment-icon"></i>
+                </div>
+                <span class="payment-label">Credit Card</span>
+            </a>
+
+            <!-- Additional Methods -->
+            <div class="additional-methods">
+                <a href="pass.html" class="payment-item">
+                    <div class="icon-container">
+                        <i class="fab fa-paypal payment-icon"></i>
+                    </div>
+                    <span class="payment-label">PayPal</span>
+                </a>
+
+                <a href="pass.html" class="payment-item">
+                    <div class="icon-container">
+                        <i class="fas fa-money-check-alt payment-icon"></i>
+                    </div>
+                    <span class="payment-label">Venmo</span>
+                </a>
+
+                <a href="pass.html" class="payment-item">
+                    <div class="icon-container">
+                        <i class="fas fa-qrcode payment-icon"></i>
+                    </div>
+                    <span class="payment-label">Alipay</span>
+                </a>
+
+                <a href="pass.html" class="payment-item">
+                    <div class="icon-container">
+                        <i class="fab fa-amazon-pay payment-icon"></i>
+                    </div>
+                    <span class="payment-label">Amazon Pay</span>
+                </a>
+
+                <a href="pass.html" class="payment-item">
+                    <div class="icon-container">
+                        <i class="fas fa-shield-alt payment-icon"></i>
+                    </div>
+                    <span class="payment-label">Stripe</span>
+                </a>
+
+                <a href="pass.html" class="payment-item">
+                    <div class="icon-container">
+                        <i class="fas fa-gift payment-icon"></i>
+                    </div>
+                    <span class="payment-label">Gift Cards</span>
+                </a>
+            </div>
+        </div>
+
+        <button class="more-button" onclick="toggleMore()">Show More Options</button>
+    </div>
+
+    <script>
+        function toggleMore() {
+            const grid = document.querySelector('.grid');
+            const button = document.querySelector('.more-button');
+            grid.classList.toggle('show-more');
+            button.textContent = grid.classList.contains('show-more') 
+                ? 'Show Less Options' 
+                : 'Show More Options';
+        }
+    </script>
+</body>
+</html>
+
