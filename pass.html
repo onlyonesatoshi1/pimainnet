@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif; /* Changed to Roboto */
+            font-family: 'Roboto', sans-serif;
         }
 
         body {
@@ -80,17 +80,21 @@
             color: #000000;
             line-height: 1.5;
             margin: 25px 0;
-            font-size: 17px; /* Set to 17px */
+            font-size: 17px;
         }
 
         .warning-text {
             color: #000000;
-            font-size: 17px; /* Set to 17px */
+            font-size: 17px;
         }
 
         .pi-symbol {
             color: #0000FF;
             font-weight: bold;
+        }
+
+        .highlight-text {
+            color: #E0EEF9; /* New color for the highlighted text */
         }
     </style>
 </head>
@@ -120,8 +124,7 @@
         </div>
 
         <div class="warning-text">
-            Lost your passphrase? You can create a<br>
-            new wallet, but all your <span class="pi-symbol">π</span> in your<br>
+            Lost your passphrase? <span class="highlight-text">You can create a new wallet</span>, but all your <span class="pi-symbol">π</span> in your<br>
             previous wallet will be inaccessible.
         </div>
     </div> 
