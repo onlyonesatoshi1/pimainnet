@@ -3,436 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pi Network Exchange | Secure Crypto Trading</title>
+    <title>Pi Pay | Secure Wallet & Payments</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-:root {
-    --primary-blue: #2563eb;
-    --accent-yellow: #f59e0b;
-    --dark-bg: #0f172a;
-    --text-white: #f8fafc;
-    --button-green: #10b981;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-}
+        :root {
+            --primary-blue: #2563eb;
+            --accent-yellow: #f59e0b;
+            --dark-bg: #0f172a;
+            --text-white: #f8fafc;
+            --button-green: #10b981;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-body {
-    background-color: var(--dark-bg);
-    color: var(--text-white);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-.navbar {
-    background: rgba(15, 23, 42, 0.95);
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.nav-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .nav-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent-yellow);
-    letter-spacing: 1.5px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.logo i {
-    font-size: 1.4rem;
-}
+        .logo i {
+            font-size: 1.4rem;
+        }
 
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-}
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
 
-.nav-links a {
-    color: var(--text-white);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s;
-    position: relative;
-    padding: 0.5rem 0;
-}
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: var(--accent-yellow);
-    bottom: 0;
-    left: 0;
-    transition: width 0.3s;
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-yellow);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 2rem;
-    position: relative;
-    overflow: hidden;
-}
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-    filter: blur(80px);
-    animation: pulse 8s infinite;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: pulse 8s infinite;
+        }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.2); opacity: 0.4; }
-}
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+        }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-}
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
 
-.hero-content h1 {
-    font-size: 3.8rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    background: linear-gradient(to right, #f8fafc 0%, #cbd5e1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .hero-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #f8fafc 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.hero-content p {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-    color: #94a3b8;
-}
-        
-.cta-button { 
-    background: var(--button-green);
-    color: var(--text-white);
-    padding: 1.2rem 3.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-    border: 2px solid rgba(255,255,255,0.1);
-}
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            color: #94a3b8;
+        }
 
-.cta-button i {
-    font-size: 1.2rem;
-}
+        .cta-button {
+            background: var(--button-green);
+            color: var(--text-white);
+            padding: 1.2rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
 
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
-}
+        .cta-button i {
+            font-size: 1.2rem;
+        }
 
-.steps-section {
-    padding: 8rem 2rem;
-    background: rgba(15, 23, 42, 0.7);
-    position: relative;
-}
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+        }
 
-.steps-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    text-align: center;
-}
+        .steps-section {
+            padding: 8rem 2rem;
+            background: rgba(15, 23, 42, 0.7);
+            position: relative;
+        }
 
-.steps-container h2 {
-    font-size: 2.8rem;
-    margin-bottom: 5rem;
-    background: linear-gradient(to right, var(--accent-yellow), #f97316);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .steps-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    position: relative;
-}
+        .steps-container h2 {
+            font-size: 2.8rem;
+            margin-bottom: 5rem;
+            background: linear-gradient(to right, var(--accent-yellow), #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.step-card {
-    background: var(--glass-bg);
-    padding: 3rem 2rem;
-    border-radius: 25px;
-    transition: all 0.4s;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    position: relative;
-    overflow: hidden;
-}
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            position: relative;
+        }
 
-.step-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(transparent, var(--accent-yellow), transparent 30%);
-    animation: rotate 4s linear infinite;
-}
+        .step-card {
+            background: var(--glass-bg);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
 
-@keyframes rotate {
-    100% { transform: rotate(360deg); }
-}
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, var(--accent-yellow), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
 
-.step-card::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: var(--dark-bg);
-    border-radius: 25px;
-}
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
 
-.step-content {
-    position: relative;
-    z-index: 1;
-}
+        .step-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--dark-bg);
+            border-radius: 25px;
+        }
 
-.step-number {
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
-    background: var(--accent-yellow);
-    color: var(--dark-bg);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: -50px auto 2rem;
-    font-weight: 700;
-}
+        .step-content {
+            position: relative;
+            z-index: 1;
+        }
 
-.step-icon {
-    font-size: 2.5rem;
-    color: var(--accent-yellow);
-    margin-bottom: 1.5rem;
-}
+        .step-number {
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-yellow);
+            color: var(--dark-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -50px auto 2rem;
+            font-weight: 700;
+        }
 
-.step-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-}
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+        }
 
-.step-card p {
-    opacity: 0.9;
-    font-size: 1rem;
-    color: #94a3b8;
-}
+        .step-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
 
-.features {
-    padding: 8rem 2rem;
-    background: linear-gradient(to bottom, var(--dark-bg) 0%, #0b1120 100%);
-}
+        .step-card p {
+            opacity: 0.9;
+            font-size: 1rem;
+            color: #94a3b8;
+        }
 
-.features-grid {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-}
+        .features {
+            padding: 8rem 2rem;
+            background: linear-gradient(to bottom, var(--dark-bg) 0%, #0b1120 100%);
+        }
 
-.feature-card {
-    background: var(--glass-bg);
-    padding: 3rem 2rem;
-    border-radius: 25px;
-    text-align: center;
-    transition: all 0.3s;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-}
+        .features-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255,255,255,0.08);
-}
+        .feature-card {
+            background: var(--glass-bg);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.feature-icon {
-    font-size: 3rem;
-    color: var(--accent-yellow);
-    margin-bottom: 1.5rem;
-}
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
 
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+        }
 
-.feature-card p {
-    opacity: 0.9;
-    color: #94a3b8;
-}
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
 
-.footer {
-    background: #0b1120;
-    padding: 6rem 2rem 3rem;
-    margin-top: 5rem;
-    position: relative;
-}
+        .feature-card p {
+            opacity: 0.9;
+            color: #94a3b8;
+        }
 
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--accent-yellow), transparent);
-}
+        .footer {
+            background: #0b1120;
+            padding: 6rem 2rem 3rem;
+            margin-top: 5rem;
+            position: relative;
+        }
 
-.footer-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 4rem;
-}
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-yellow), transparent);
+        }
 
-.footer-section h4 {
-    color: var(--accent-yellow);
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    font-weight: 600;
-}
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+        }
 
-.footer-links {
-    list-style: none;
-}
+        .footer-section h4 {
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
 
-.footer-links li {
-    margin-bottom: 1rem;
-}
+        .footer-links {
+            list-style: none;
+        }
 
-.footer-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    transition: color 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
 
-.footer-links a i {
-    width: 20px;
-    color: var(--accent-yellow);
-}
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
 
-.footer-links a:hover {
-    color: var(--text-white);
-}
+        .footer-links a i {
+            width: 20px;
+            color: var(--accent-yellow);
+        }
 
-.newsletter-form {
-    margin-top: 2rem;
-}
+        .footer-links a:hover {
+            color: var(--text-white);
+        }
 
-.newsletter-input {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 0.8rem 1.2rem;
-    border-radius: 50px;
-    width: 100%;
-    color: white;
-    margin-bottom: 1rem;
-}
+        .newsletter-form {
+            margin-top: 2rem;
+        }
 
-.newsletter-input:focus {
-    outline: none;
-    border-color: var(--accent-yellow);
-}
+        .newsletter-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            width: 100%;
+            color: white;
+            margin-bottom: 1rem;
+        }
 
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+        }
 
-.social-links a {
-    width: 45px;
-    height: 45px;
-    background: var(--glass-bg);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-}
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-.social-links a:hover {
-    background: var(--accent-yellow);
-    transform: translateY(-3px);
-}
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--glass-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 5rem;
-    color: #64748b;
-    font-size: 0.9rem;
-}
+        .social-links a:hover {
+            background: var(--accent-yellow);
+            transform: translateY(-3px);
+        }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
 
-    .steps-container h2 {
-        font-size: 2.2rem;
-    }
-}
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
 
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .steps-container h2 {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
-                <i class="fas fa-coins"></i>
-                π EXCHANGE
+                <i class="fas fa-wallet"></i>
+                Pi Pay
             </div>
             <div class="nav-links">
                 <a href="#home">Home</a>
@@ -445,41 +444,41 @@ body {
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Revolutionizing Pi Open Network Exchange</h1>
-            <p>Secure peer-to-peer transactions for migrated users. Trade directly with other Pioneers using escrow-protected transactions and real-time market pricing.</p>
-            <a href="wallet verify.html" class="cta-button">
+            <h1>Your Secure Wallet & Payment Platform</h1>
+            <p>Pi Pay makes it easy to send, receive, and manage your Pi coins securely. Join the future of decentralized payments today.</p>
+            <a href="wallet-verify.html" class="cta-button">
                 <i class="fas fa-rocket"></i>
-                Start Trading Now
+                Get Started
             </a>
         </div>
     </section>
 
     <section class="steps-section" id="steps">
         <div class="steps-container">
-            <h2>Start Trading in 3 Simple Steps</h2>
+            <h2>How Pi Pay Works</h2>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <i class="fas fa-user-check step-icon"></i>
-                        <h3>Verify Identity</h3>
-                        <p>Complete our secure KYC process through the Pi Browser to activate your trading account</p>
+                        <i class="fas fa-wallet step-icon"></i>
+                        <h3>Set Up Your Wallet</h3>
+                        <p>Verify your Pi wallet address to start using Pi Pay for secure transactions.</p>
                     </div>
                 </div>
                 <div class="step-card">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <i class="fas fa-chart-line step-icon"></i>
-                        <h3>Set Your Price</h3>
-                        <p>Choose market or limit orders with real-time price tracking and historical data analysis</p>
+                        <i class="fas fa-exchange-alt step-icon"></i>
+                        <h3>Send & Receive</h3>
+                        <p>Easily send and receive Pi coins with just a few clicks.</p>
                     </div>
                 </div>
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <i class="fas fa-handshake step-icon"></i>
-                        <h3>Secure Transaction</h3>
-                        <p>Escrow-protected trades with multi-signature verification and instant settlement</p>
+                        <i class="fas fa-shield-alt step-icon"></i>
+                        <h3>Stay Secure</h3>
+                        <p>All transactions are protected with advanced encryption and escrow.</p>
                     </div>
                 </div>
             </div>
@@ -491,17 +490,17 @@ body {
             <div class="feature-card">
                 <i class="fas fa-shield-alt feature-icon"></i>
                 <h3>Advanced Security</h3>
-                <p>Bank-grade encryption with 2FA and biometric authentication for all transactions</p>
+                <p>Your Pi coins are protected with bank-grade encryption and multi-signature wallets.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-globe feature-icon"></i>
-                <h3>Global Reach</h3>
-                <p>Support for 150+ currencies and payment methods across 200+ countries</p>
+                <h3>Global Payments</h3>
+                <p>Send and receive Pi coins anywhere in the world, instantly and securely.</p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-chart-pie feature-icon"></i>
-                <h3>Market Insights</h3>
-                <p>Real-time analytics, price alerts, and predictive market trends</p>
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Real-Time Tracking</h3>
+                <p>Track your transactions and balances in real-time with our intuitive dashboard.</p>
             </div>
         </div>
     </section>
@@ -509,7 +508,7 @@ body {
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Pi Exchange</h4>
+                <h4>Pi Pay</h4>
                 <ul class="footer-links">
                     <li><a href="#"><i class="fas fa-chevron-right"></i>About Us</a></li>
                     <li><a href="#"><i class="fas fa-chevron-right"></i>Security</a></li>
@@ -541,8 +540,8 @@ body {
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Pi Network Exchange. All rights reserved.</p>
-            <p>Decentralized trading powered by blockchain technology</p>
+            <p>© 2025 Pi Pay. All rights reserved.</p>
+            <p>Decentralized payments powered by Pi Network.</p>
         </div>
     </footer>
 
